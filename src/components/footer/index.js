@@ -10,13 +10,13 @@ const Header = () => (
 		<div class={style.hero}>
 			<ul class={style.nav}>
 				<li>
-					<Link>HTMLMediaElement</Link>
+					<Link href="htmlmediaelement">HTMLMediaElement</Link>
 				</li>
 				<li>
-					<Link>MSE</Link>
+					<Link href="/mse">MSE</Link>
 				</li>
 				<li>
-					<a>Github</a>
+					<a href="https://github.com/zouhir/browser-media-support" target="_blank" rel="noopener noreferrer">Github</a>
 				</li>
 			</ul>
 			<div class={style.sys}>

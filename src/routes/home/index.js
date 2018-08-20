@@ -2,8 +2,10 @@ import { h, Component } from 'preact';
 import style from './style';
 
 // components
-import Hero from '../../components/hero';
+import Header from '../../components/header';
+import ListView from '../../components/listview/'
 
+// constants
 import MIME_TYPES from '../../MIME_TYPES';
 
 const STATUS = {
@@ -60,15 +62,8 @@ class Home extends Component {
 	render({}, {list}) {
 		return(
 			<div class={style.home}>
-				<Hero />
-				{ list.length === 0 && 'Loading...'}
-				<ul>
-					{
-						list.map( item => (
-							<li>{item.mime} : {item.canPlay}</li>	
-						))
-					}
-				</ul>
+				<Header />
+				<ListView list={list} />
 			</div>
 		)
 	}

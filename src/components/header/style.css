@@ -1,48 +1,63 @@
 .header {
-	position: fixed;
-	left: 0;
-	top: 0;
 	width: 100%;
-	height: 56px;
 	padding: 0;
-	background: #673AB7;
-	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-	z-index: 50;
+	display: flex;
+	margin-bottom: 40px;
 }
 
-.header h1 {
-	float: left;
-	margin: 0;
-	padding: 0 15px;
-	font-size: 24px;
-	line-height: 56px;
-	font-weight: 400;
-	color: #FFF;
+.logo {
+	flex: 0 0 100px;
+	padding: 15px 0px 15px 15px;
 }
 
-.header nav {
-	float: right;
-	font-size: 100%;
+.hero {
+	flex: 1;
+	padding: 15px;
+	font-family: 'Montserrat', sans-serif;
+	display: flex;
+	flex-direction: column;
+	background: #736EFF;
+	box-shadow: 0 20px 30px 0 rgba(0,0,0,0.10);
+	border-radius: 0 0 0 10px;
+	font-size: 15px;
 }
 
-.header nav a {
-	display: inline-block;
-	height: 56px;
-	line-height: 56px;
-	padding: 0 15px;
-	min-width: 50px;
-	text-align: center;
-	background: rgba(255,255,255,0);
+.nav {
+	width: 100%;
+	display: flex;
+	list-style-type: none;
+	justify-content: flex-end;
+}
+
+.nav li {
+	margin-left: 20px;
+}
+
+.nav li a {
+	padding: 10px 2px;
 	text-decoration: none;
+	color: #58FFE7;
+	font-weight: bold;
+}
+
+.active {
+	text-decoration: underline;
+}
+
+.sys {
+	margin-top: 70px;
 	color: #FFF;
-	will-change: background-color;
+	display: flex;
+	flex-direction: column;
+}
+.sys p {
+	margin-top: 0;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+	font-family: 'Space Mono', monospace;
 }
 
-.header nav a:hover,
-.header nav a:active {
-	background: rgba(0,0,0,0.2);
-}
-
-.header nav a.active {
-	background: rgba(0,0,0,0.4);
+.sys span {
+	color: #58FFE7;
+	text-transform: lowercase;
 }

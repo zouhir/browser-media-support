@@ -1,0 +1,32 @@
+.listview {
+	list-style-type: none;
+	padding: 0;
+	width: 100%;
+}
+
+
+.listview li {
+	display: flex;
+	border-bottom: 1px solid #F1F1F1;
+	padding: 10px 10px;
+}
+
+.listview li:not(.heading):hover {
+	background: #F1F1F1;
+}
+.listview li span:first-child {
+	flex: 1 1 auto;
+}
+
+.listview li span:last-child {
+	flex: 0 0 140px;
+	text-align: right;
+}
+
+.heading {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: bold;
+	color: #736EFF;
+	padding: 15px 10px;
+	border-bottom: 2px solid #EBEBEB !important;
+}
