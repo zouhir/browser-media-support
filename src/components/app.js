@@ -21,9 +21,8 @@ export default class App extends Component {
 		return (
 			<div id="app">
 				<Router onChange={this.handleRoute}>
-					<Home path="/" />
-					<Profile path="/profile/" user="me" />
-					<Profile path="/profile/:user" />
+					<Home path="/HTMLMediaElement" default />
+					<Home path="/MSE" />
 				</Router>
 			</div>
 		);
