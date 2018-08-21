@@ -10,7 +10,7 @@ const ListView = ({ list = [] }) => {
 					MIME
 				</span>
 				<span>
-					canPlayType
+					SUPPORTED
 				</span>
 			</li>
 			{

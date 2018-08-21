@@ -20,7 +20,8 @@ export default class App extends Component {
 		list: [],
         browser: 'detecting...', 
         os: 'detecting...', 
-        platform: 'detecting...' 
+		platform: 'detecting...',
+		score: {}
 	}
 	componentDidMount() {
 		let ua = bowser.getParser(window.navigator.userAgent) 
@@ -33,30 +34,48 @@ export default class App extends Component {
 	}
 
 	getHTMLMediaElementStatus = () => {
+		let score = {
+			yes: 0,
+			no: 0,
+			maybe: 0
+		}
 		let _list = [];
 		let vid = document.createElement('video');
 		let aud = document.createElement('audio');
 		MIME_TYPES.forEach(_mime => {
 			let mime = _mime.toLowerCase();
 			if( mime.indexOf['audio/'] === 0 ) {
-				_list.push({mime: mime, canPlay: aud.canPlayType(mime)});
+				let canPlay = aud.canPlayType(mime);
+				if( canPlay === '' ) score.no +=1;
+				if( canPlay === 'maybe' ) score.maybe +=1;
+				if( canPlay === 'probably' ) score.yes +=1;
+				_list.push({mime, canPlay });
 			} else {
-				_list.push({mime: mime, canPlay: vid.canPlayType(mime)});
+				let canPlay = vid.canPlayType(mime);
+				if( canPlay === '' ) score.no +=1;
+				if( canPlay === 'maybe' ) score.maybe +=1;
+				if( canPlay === 'probably' ) score.yes +=1;
+				_list.push({mime, canPlay});
 			}
 		})
-		this.setState({ list: _list, status: STATUS.READY });
+		this.setState({ list: _list, status: STATUS.READY, score });
 	}
 
 	getMSEStatus = () => {
 		let _list = [];
+		let score = {
+			yes: 0,
+			no: 0
+		}
 		if( !'MediaSource' in window  ) {
 			this.setState({ list: _list, status: STATUS.ERROR });
 		}
 		MIME_TYPES.forEach(_mime => {
 			let mime = _mime.toLowerCase();
-			_list.push({mime: mime, canPlay: MediaSource.isTypeSupported(mime) ? 'yes' : 'no' });
+			let canPlay = MediaSource.isTypeSupported(mime);
+			if( canPlay === true ) { score.yes +=1; } else { score.no +=1;}
+			_list.push({mime, canPlay: canPlay ? 'yes' : 'no' });
 		})
-		console.log(_list)
 		this.setState({ list: _list, status: STATUS.READY });
 	}
 	
@@ -71,7 +90,7 @@ export default class App extends Component {
 		}
 	};
 
-	render({}, {list, browser, os, platform}) {
+	render({}, {list, browser, os, platform, score}) {
 		return (
 			<div id="app">
 				<Router onChange={this.handleRoute}>
@@ -80,7 +99,8 @@ export default class App extends Component {
 						browser={browser} 
 						os={os} 
 						platform={platform} 
-						path="/HTMLMediaElement" 
+						path="/HTMLMediaElement"
+						score={score}
 						default />
 					<Home 
 						list={list} 
@@ -88,6 +108,7 @@ export default class App extends Component {
 						browser={browser} 
 						os={os} 
 						platform={platform}
+						score={score}
 						path="/mse" />
 				</Router>
 			</div>
