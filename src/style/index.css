@@ -23,6 +23,8 @@ html, body {
 #app {
 	height: 100%;
 	color: var(--primary-color);
+	width: 100%;
+	overflow-x: hidden;
 }
 
 
