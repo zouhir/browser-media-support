@@ -24,6 +24,7 @@ export default class App extends Component {
 		score: {}
 	}
 	componentDidMount() {
+		if( typeof document === 'undefined' ) return;
 		let ua = bowser.getParser(window.navigator.userAgent) 
 		let {browser, platform, os} = ua.parsedResult; 
 		this.setState({
@@ -80,6 +81,7 @@ export default class App extends Component {
 	}
 	
 	handleRoute = e => {
+		if( typeof document === 'undefined' ) return;
 		switch(e.url) {
 			case '/':
 				return this.getHTMLMediaElementStatus();
