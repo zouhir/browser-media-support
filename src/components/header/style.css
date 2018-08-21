@@ -7,7 +7,18 @@
 
 .logo {
 	flex: 0 0 100px;
-	padding: 15px 0px 15px 15px;
+	padding: 15px 5px 15px 0px;
+	display: flex;
+	justify-content: center;
+}
+
+
+.logo a {
+	text-decoration: none;
+}
+
+.logo img {
+	max-width: 60px;
 }
 
 .hero {

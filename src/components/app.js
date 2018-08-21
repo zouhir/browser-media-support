@@ -26,10 +26,10 @@ export default class App extends Component {
 	componentDidMount() {
 		if( typeof document === 'undefined' ) return;
 		let ua = bowser.getParser(window.navigator.userAgent) 
-		let {browser, platform, os} = ua.parsedResult; 
+		let {browser, platform, os} = ua.parsedResult;
 		this.setState({
-			browser: browser.name + ' ' + browser.version,
-			os: os.name + ' ' + os.versionName, 
+			browser: `${browser.name} ${browser.version}`,
+			os: `${os.name} ${os.versionName ? os.versionName : os.version}`,
 			platform: platform.type
 		})
 	}
@@ -77,7 +77,7 @@ export default class App extends Component {
 			if( canPlay === true ) { score.yes +=1; } else { score.no +=1;}
 			_list.push({mime, canPlay: canPlay ? 'yes' : 'no' });
 		})
-		this.setState({ list: _list, status: STATUS.READY });
+		this.setState({ list: _list, status: STATUS.READY, score });
 	}
 	
 	handleRoute = e => {
