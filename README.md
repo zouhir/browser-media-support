@@ -46,9 +46,9 @@ This web app passes mimetypes through `MediaSource.isTypeSupported()` [MDN](http
 
 I have over 90 mimetype, collected them from variety of places such as:
 
-- Edge codebase
+- Edge whitelisted codecs.
 
-- [WebKit](https://webkit.org/getting-started/) unit tests
+- [WebKit](https://webkit.org/getting-started/) unit tests.
 
 - Chromium unit tests [ref1](https://cs.chromium.org/chromium/src/media/base/mime_util_unittest.cc), [ref2](https://cs.chromium.org/chromium/src/content/browser/media/media_canplaytype_browsertest.cc)
 
