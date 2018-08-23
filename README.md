@@ -33,7 +33,7 @@ For simplicity I have replaced:
 
 - **probably**: Yes.
 - **maybe**: Maybe.
-- **''(empty string)**: No.
+- **' ' (empty string)**: No.
 
 #### MSE: Playback in video or audio element via Media Source Extension
 

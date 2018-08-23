@@ -45,19 +45,26 @@ export default class App extends Component {
 		let aud = document.createElement('audio');
 		MIME_TYPES.forEach(_mime => {
 			let mime = _mime.toLowerCase();
+			let canPlay = null;
 			if( mime.indexOf['audio/'] === 0 ) {
-				let canPlay = aud.canPlayType(mime);
-				if( canPlay === '' ) score.no +=1;
-				if( canPlay === 'maybe' ) score.maybe +=1;
-				if( canPlay === 'probably' ) score.yes +=1;
-				_list.push({mime, canPlay });
+				canPlay = aud.canPlayType(mime);
 			} else {
-				let canPlay = vid.canPlayType(mime);
-				if( canPlay === '' ) score.no +=1;
-				if( canPlay === 'maybe' ) score.maybe +=1;
-				if( canPlay === 'probably' ) score.yes +=1;
-				_list.push({mime, canPlay});
+				canPlay = vid.canPlayType(mime);
 			}
+			let canPlayStr = '';
+			if( canPlay === '' ) {
+				score.no +=1;
+				canPlayStr = 'no';
+			};
+			if( canPlay === 'maybe' ) { 
+				score.maybe +=1;
+				canPlayStr = 'maybe';
+			}
+			if( canPlay === 'probably' ) {
+				score.yes +=1;
+				canPlayStr = 'yes';
+			}
+			_list.push({mime, canPlay: canPlayStr });
 		})
 		this.setState({ list: _list, status: STATUS.READY, score });
 	}

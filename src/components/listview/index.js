@@ -12,10 +12,10 @@ const ListView = ({ list = [] }) => {
       {list.map(item => (
         <li>
           <span>{item.mime}</span>
-          <span class={style[item.canPlay]}>
-            {(item.canPlay === "" || item.canPlay === "no") && "no"}
-            {item.canPlay === "maybe" && "maybe"}
-            {(item.canPlay === "probably" || item.canPlay === "yes") && "yes"}
+          <span>
+            <div class={style[item.canPlay]}>
+              {item.canPlay}
+            </div>
           </span>
         </li>
       ))}

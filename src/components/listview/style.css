@@ -16,11 +16,43 @@
 }
 .listview li span:first-child {
 	flex: 1 1 auto;
+	word-break: break-all;
 }
 
 .listview li span:last-child {
 	flex: 0 0 140px;
 	text-align: right;
+}
+
+.listview li span .no {
+	border-radius: 2px;
+	padding: 5px 0px;
+	width: 90px;
+	justify-content: center;
+	display: inline-flex;
+	background: #FA2337;
+	color: #fff;
+}
+
+.listview li span .yes {
+	border-radius: 2px;
+	padding: 5px 0px;
+	width: 90px;
+	justify-content: center;
+	display: inline-flex;
+	background: #4fd363;
+	color: #053036;
+}
+
+
+.listview li span .maybe {
+	border-radius: 2px;
+	padding: 5px 0px;
+	width: 90px;
+	justify-content: center;
+	display: inline-flex;
+	background: #fecb4e;
+	color: #282732;
 }
 
 .heading {
