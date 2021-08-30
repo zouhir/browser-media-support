@@ -1,9 +1,7 @@
-import { h } from "preact";
-import { Link } from "preact-router/match";
-import style from "./style";
+import "./style.css";
 
 const Footer = () => (
-  <footer class={style.footer}>
+  <footer className="footer">
     Made with ⚛️, 💛 and ☕️ by
     <a href="https://twitter.com/_zouhir" rel="noopener noreferrer">
       @_zouhir

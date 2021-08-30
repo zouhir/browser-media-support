@@ -1,6 +1,5 @@
-import { h } from "preact";
 import { Link } from "preact-router/match";
-import style from "./style";
+import "./style.css";
 import cx from "classnames";
 
 const Header = ({ browser, os, platform, path, score }) => {
@@ -10,19 +9,19 @@ const Header = ({ browser, os, platform, path, score }) => {
   });
   scoreStr = scoreStr.slice(0, -2);
   return (
-    <header class={style.header}>
-      <div class={style.logo}>
-	  	<a href="https://zouhir.codes" target="_blank" rel="noopener norefferer">
-		  <img src="/assets/logo.png" />
+    <header className="header">
+      <div className="logo">
+	  	<a href="https://zouhir.org" target="_blank" rel="noopener norefferer">
+		  <img src="/src/assets/logo.png" />
 		</a>
 	  </div>
-      <div class={style.hero}>
-        <ul class={style.nav}>
+      <div className="hero">
+        <ul className="nav">
           <li>
             <Link
               class={cx(
-                path === "/" && style.active,
-                path === "/HTMLMediaElement" && style.active
+                path === "/" && "active",
+                path === "/HTMLMediaElement" && "active"
               )}
               href="/HTMLMediaElement"
             >
@@ -30,7 +29,7 @@ const Header = ({ browser, os, platform, path, score }) => {
             </Link>
           </li>
           <li>
-            <Link class={path === "/mse" ? style.active : null} href="/mse">
+            <Link class={path === "/mse" ? "active" : null} href="/mse">
               MSE
             </Link>
           </li>
@@ -44,7 +43,7 @@ const Header = ({ browser, os, platform, path, score }) => {
             </a>
           </li>
         </ul>
-        <div class={style.sys}>
+        <div class="sys">
           <p>
             OS: <span>{os}</span>{" "}
           </p>

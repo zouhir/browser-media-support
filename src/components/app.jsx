@@ -1,4 +1,4 @@
-import { h, Component } from 'preact';
+import { Component } from 'preact';
 import { Router } from 'preact-router';
 
 import Home from '../routes/home';
@@ -75,7 +75,7 @@ export default class App extends Component {
 			yes: 0,
 			no: 0
 		}
-		if( !'MediaSource' in window  ) {
+		if( typeof window.MediaSource === "undefined"  ) {
 			this.setState({ list: _list, status: STATUS.ERROR });
 		}
 		MIME_TYPES.forEach(_mime => {
@@ -101,26 +101,24 @@ export default class App extends Component {
 
 	render({}, {list, browser, os, platform, score}) {
 		return (
-			<div id="app">
-				<Router onChange={this.handleRoute}>
-					<Home 
-						list={list} 
-						browser={browser} 
-						os={os} 
-						platform={platform} 
-						path="/HTMLMediaElement"
-						score={score}
-						default />
-					<Home 
-						list={list} 
-						list={list} 
-						browser={browser} 
-						os={os} 
-						platform={platform}
-						score={score}
-						path="/mse" />
-				</Router>
-			</div>
+			<Router onChange={this.handleRoute}>
+				<Home 
+					list={list} 
+					browser={browser} 
+					os={os} 
+					platform={platform} 
+					path="/HTMLMediaElement"
+					score={score}
+					default />
+				<Home 
+					list={list} 
+					list={list} 
+					browser={browser} 
+					os={os} 
+					platform={platform}
+					score={score}
+					path="/mse" />
+			</Router>
 		);
 	}
 }
