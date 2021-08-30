@@ -1,11 +1,10 @@
-import { h } from "preact";
-import style from "./style";
+import "./style.css";
 
 const ListView = ({ list = [] }) => {
   if (list.length === 0) return "loading...";
   return (
-    <ul class={style.listview}>
-      <li class={style.heading}>
+    <ul class="listview">
+      <li class="heading">
         <span>MIME</span>
         <span>SUPPORTED</span>
       </li>
@@ -13,7 +12,7 @@ const ListView = ({ list = [] }) => {
         <li>
           <span>{item.mime}</span>
           <span>
-            <div class={style[item.canPlay]}>
+            <div classNamee={item.canPlay}>
               {item.canPlay}
             </div>
           </span>

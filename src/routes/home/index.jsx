@@ -1,10 +1,10 @@
-import { h, Component } from "preact";
-import style from "./style";
+import { Component } from "preact";
+import style from "./style.css";
 
 // components
 import Header from "../../components/header";
-import ListView from "../../components/listview/";
-import Footer from "../../components/footer/";
+import ListView from "../../components/listview";
+import Footer from "../../components/footer";
 
 class Home extends Component {
   render({ list, browser, os, platform, path, score }) {
